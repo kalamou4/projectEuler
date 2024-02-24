@@ -1,6 +1,7 @@
 package projecteuler
 
-func MultipleOf5Or3(three, five, x int) int {
+
+func MultipleOfFiveOrThree(three, five, x int) int {
 	var sum int
 	var i = 1
 	for i < x {
