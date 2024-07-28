@@ -1,5 +1,4 @@
-package projecteuler
-
+package euler
 
 func MultipleOfFiveOrThree(three, five, x int) int {
 	var sum int
