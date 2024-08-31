@@ -1,7 +1,5 @@
 package euler
 
-import "math"
-
 // Send the sequence 2, 3, 4, ... to channel 'ch'.
 func Generate(ch chan<- int) {
 	for i := 2; ; i++ {
@@ -23,10 +21,11 @@ func Filter(in <-chan int, out chan<- int, prime int) {
 // The prime sieve: Daisy-chain Filter processes.
 func PrimeSeive(limit int) []int {
 	//A prime factor or "limit" must be lower than its square root
-	limit = int(math.Sqrt(float64(limit)))
+	//this line can be deleted but this function will takes too much time if a big number is given
+	//square_limit := int(math.Sqrt(float64(limit)))
 	ch := make(chan int) // Create a new channel.
 	// Launch Generate goroutine.
-	go Generate(ch) 
+	go Generate(ch)
 	primes := []int{}
 
 	for {
@@ -43,7 +42,7 @@ func PrimeSeive(limit int) []int {
 	return primes
 }
 
-//LargestPrime returns an int reprensenting a the highest prime factor
+// LargestPrime returns an int reprensenting a the highest prime factor
 func LargestPrime(limit int) int {
 	primes := PrimeSeive(limit)
 	for i := len(primes) - 1; i >= 0; i-- {
@@ -53,4 +52,3 @@ func LargestPrime(limit int) int {
 	}
 	return limit
 }
-
