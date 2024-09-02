@@ -5,6 +5,8 @@ import (
     "math"
 )
 
+// The function `LargestPalindromProduct` finds the largest palindrome product of two numbers with a
+// specified number of digits.
 func LargestPalindromProduct(digits int) int {
     max := int(math.Pow10(digits)) - 1
     min := int(math.Pow10(digits - 1))
@@ -33,3 +35,13 @@ func IsPalindrome(s string) bool {
     }
     return true
 }
+
+//arithmetic approch for checking palindromes
+// func IsPalindrom(n int) bool {
+//     backwards, temp := 0, n
+//     for temp > 0 {
+//         backwards = backwards * 10 + temp % 10
+//         temp /= 10
+//     }
+//     return backwards == n
+// }

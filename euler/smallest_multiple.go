@@ -2,14 +2,11 @@ package euler
 
 import "math"
 
-func IsPrime(x int) bool {
-	return x%2 != 0
-}
 
 //return all primes factor for a number 
 func PrimeFactors(n int) map[int]int {
 	factors := make(map[int]int)
-	primes := PrimeSeive(n)
+	primes := PrimeSieve(n)
 
 	for _, prime := range primes {
 		for n%prime == 0 {
